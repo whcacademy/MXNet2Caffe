@@ -1,5 +1,8 @@
 # prototxt_basic
 
+import sys
+
+
 def data(txt_file, info):
   txt_file.write('name: "mxnet-mdoel"\n')
   txt_file.write('layer {\n')
@@ -36,6 +39,7 @@ def Convolution(txt_file, info):
     txt_file.write('	}\n')
   txt_file.write('}\n')
   txt_file.write('\n')
+  print(info)
 
 def ChannelwiseConvolution(txt_file, info):
   Convolution(txt_file, info)
@@ -126,17 +130,40 @@ def FullyConnected(txt_file, info):
   txt_file.write('\n')
   pass
 
+
+
 def Flatten(txt_file, info):
+  txt_file.write('layer {\n')
+  txt_file.write('  bottom: "%s"\n'     % info['bottom'][0])
+  txt_file.write('  top: "%s"\n'        % info['top'])
+  txt_file.write('  name: "%s"\n'       % info['top'])
+  txt_file.write('  type: "Flatten"\n')
+  txt_file.write('}\n')
+  txt_file.write('\n')
   pass
   
 def SoftmaxOutput(txt_file, info):
   pass
 
+def slice_axis(txt_file, info):
+  txt_file.write('<slice_json>\n')
+  txt_file.write(str(info))
+  txt_file.write('\n')
+  txt_file.write('</slice_json>')
+  txt_file.write('\n')
+  print('\n' + '-'*100 + '\n')
+  pass
+
+# add by Haicheng WANG
+# use slice layer in caffe to realize
+# slice axis in MXNet
+
 
 # ----------------------------------------------------------------
 def write_node(txt_file, info):
     if 'label' in info['name']:
-        return        
+        return
+    # print(info)        
     if info['op'] == 'null' and info['name'] == 'data':
         data(txt_file, info)
     elif info['op'] == 'Convolution':
@@ -161,8 +188,10 @@ def write_node(txt_file, info):
         FullyConnected(txt_file, info)
     elif info['op'] == 'SoftmaxOutput':
         SoftmaxOutput(txt_file, info)
+    elif info['op'] == 'slice_axis':
+        slice_axis(txt_file, info)
     else:
-        sys.exit("Warning!  Unknown mxnet op:{}".format(info['op']))
+        print("Warning!  Unknown mxnet op:{}".format(info['op']))
 
 
 
