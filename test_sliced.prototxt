@@ -106,7 +106,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv2_x__1_c1x1-w(s/1)__conv"
+  name: "slicer_conv2_x__1_c1x1-w(s/1)__conv"
+  type: "Slice"
+  top: "conv2_x__1_c1x1-w(s/1)-split1"
+  top: "conv2_x__1_c1x1-w(s/1)-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 256
+  }
+}
+
 layer {
   bottom: "pool1"
   top: "conv2_x__1_c1x1-a__bn__bn"
@@ -230,7 +242,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv2_x__1_c1x1-c__conv"
+  name: "slicer_conv2_x__1_c1x1-c__conv"
+  type: "Slice"
+  top: "conv2_x__1_c1x1-c-split1"
+  top: "conv2_x__1_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 256
+  }
+}
+
 layer {
   name: "conv2_x__1_sum"
   type: "Eltwise"
@@ -239,8 +263,6 @@ layer {
   top: "conv2_x__1_sum"
 }
 
-</slice_json>
-</slice_json>
 layer {
   name: "conv2_x__1_cat"
   type: "Concat"
@@ -380,7 +402,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv2_x__2_c1x1-c__conv"
+  name: "slicer_conv2_x__2_c1x1-c__conv"
+  type: "Slice"
+  top: "conv2_x__2_c1x1-c-split1"
+  top: "conv2_x__2_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 256
+  }
+}
+
 layer {
   name: "conv2_x__2_sum"
   type: "Eltwise"
@@ -389,7 +423,6 @@ layer {
   top: "conv2_x__2_sum"
 }
 
-</slice_json>
 layer {
   name: "conv2_x__2_cat"
   type: "Concat"
@@ -529,7 +562,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv2_x__3_c1x1-c__conv"
+  name: "slicer_conv2_x__3_c1x1-c__conv"
+  type: "Slice"
+  top: "conv2_x__3_c1x1-c-split1"
+  top: "conv2_x__3_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 256
+  }
+}
+
 layer {
   name: "conv2_x__3_sum"
   type: "Eltwise"
@@ -538,7 +583,6 @@ layer {
   top: "conv2_x__3_sum"
 }
 
-</slice_json>
 layer {
   name: "conv2_x__3_cat"
   type: "Concat"
@@ -596,7 +640,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv3_x__1_c1x1-w(s/2)__conv"
+  name: "slicer_conv3_x__1_c1x1-w(s/2)__conv"
+  type: "Slice"
+  top: "conv3_x__1_c1x1-w(s/2)-split1"
+  top: "conv3_x__1_c1x1-w(s/2)-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 512
+  }
+}
+
 layer {
   bottom: "conv3_x__1_cat-input"
   top: "conv3_x__1_c1x1-a__bn__bn"
@@ -720,7 +776,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv3_x__1_c1x1-c__conv"
+  name: "slicer_conv3_x__1_c1x1-c__conv"
+  type: "Slice"
+  top: "conv3_x__1_c1x1-c-split1"
+  top: "conv3_x__1_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 512
+  }
+}
+
 layer {
   name: "conv3_x__1_sum"
   type: "Eltwise"
@@ -729,8 +797,6 @@ layer {
   top: "conv3_x__1_sum"
 }
 
-</slice_json>
-</slice_json>
 layer {
   name: "conv3_x__1_cat"
   type: "Concat"
@@ -870,7 +936,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv3_x__2_c1x1-c__conv"
+  name: "slicer_conv3_x__2_c1x1-c__conv"
+  type: "Slice"
+  top: "conv3_x__2_c1x1-c-split1"
+  top: "conv3_x__2_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 512
+  }
+}
+
 layer {
   name: "conv3_x__2_sum"
   type: "Eltwise"
@@ -879,7 +957,6 @@ layer {
   top: "conv3_x__2_sum"
 }
 
-</slice_json>
 layer {
   name: "conv3_x__2_cat"
   type: "Concat"
@@ -1019,7 +1096,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv3_x__3_c1x1-c__conv"
+  name: "slicer_conv3_x__3_c1x1-c__conv"
+  type: "Slice"
+  top: "conv3_x__3_c1x1-c-split1"
+  top: "conv3_x__3_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 512
+  }
+}
+
 layer {
   name: "conv3_x__3_sum"
   type: "Eltwise"
@@ -1028,7 +1117,6 @@ layer {
   top: "conv3_x__3_sum"
 }
 
-</slice_json>
 layer {
   name: "conv3_x__3_cat"
   type: "Concat"
@@ -1168,7 +1256,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv3_x__4_c1x1-c__conv"
+  name: "slicer_conv3_x__4_c1x1-c__conv"
+  type: "Slice"
+  top: "conv3_x__4_c1x1-c-split1"
+  top: "conv3_x__4_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 512
+  }
+}
+
 layer {
   name: "conv3_x__4_sum"
   type: "Eltwise"
@@ -1177,7 +1277,6 @@ layer {
   top: "conv3_x__4_sum"
 }
 
-</slice_json>
 layer {
   name: "conv3_x__4_cat"
   type: "Concat"
@@ -1235,7 +1334,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv4_x__1_c1x1-w(s/2)__conv"
+  name: "slicer_conv4_x__1_c1x1-w(s/2)__conv"
+  type: "Slice"
+  top: "conv4_x__1_c1x1-w(s/2)-split1"
+  top: "conv4_x__1_c1x1-w(s/2)-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 1024
+  }
+}
+
 layer {
   bottom: "conv4_x__1_cat-input"
   top: "conv4_x__1_c1x1-a__bn__bn"
@@ -1359,7 +1470,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv4_x__1_c1x1-c__conv"
+  name: "slicer_conv4_x__1_c1x1-c__conv"
+  type: "Slice"
+  top: "conv4_x__1_c1x1-c-split1"
+  top: "conv4_x__1_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 1024
+  }
+}
+
 layer {
   name: "conv4_x__1_sum"
   type: "Eltwise"
@@ -1368,8 +1491,6 @@ layer {
   top: "conv4_x__1_sum"
 }
 
-</slice_json>
-</slice_json>
 layer {
   name: "conv4_x__1_cat"
   type: "Concat"
@@ -1509,7 +1630,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv4_x__2_c1x1-c__conv"
+  name: "slicer_conv4_x__2_c1x1-c__conv"
+  type: "Slice"
+  top: "conv4_x__2_c1x1-c-split1"
+  top: "conv4_x__2_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 1024
+  }
+}
+
 layer {
   name: "conv4_x__2_sum"
   type: "Eltwise"
@@ -1518,7 +1651,6 @@ layer {
   top: "conv4_x__2_sum"
 }
 
-</slice_json>
 layer {
   name: "conv4_x__2_cat"
   type: "Concat"
@@ -1658,7 +1790,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv4_x__3_c1x1-c__conv"
+  name: "slicer_conv4_x__3_c1x1-c__conv"
+  type: "Slice"
+  top: "conv4_x__3_c1x1-c-split1"
+  top: "conv4_x__3_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 1024
+  }
+}
+
 layer {
   name: "conv4_x__3_sum"
   type: "Eltwise"
@@ -1667,7 +1811,6 @@ layer {
   top: "conv4_x__3_sum"
 }
 
-</slice_json>
 layer {
   name: "conv4_x__3_cat"
   type: "Concat"
@@ -1807,7 +1950,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv4_x__4_c1x1-c__conv"
+  name: "slicer_conv4_x__4_c1x1-c__conv"
+  type: "Slice"
+  top: "conv4_x__4_c1x1-c-split1"
+  top: "conv4_x__4_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 1024
+  }
+}
+
 layer {
   name: "conv4_x__4_sum"
   type: "Eltwise"
@@ -1816,7 +1971,6 @@ layer {
   top: "conv4_x__4_sum"
 }
 
-</slice_json>
 layer {
   name: "conv4_x__4_cat"
   type: "Concat"
@@ -1956,7 +2110,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv4_x__5_c1x1-c__conv"
+  name: "slicer_conv4_x__5_c1x1-c__conv"
+  type: "Slice"
+  top: "conv4_x__5_c1x1-c-split1"
+  top: "conv4_x__5_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 1024
+  }
+}
+
 layer {
   name: "conv4_x__5_sum"
   type: "Eltwise"
@@ -1965,7 +2131,6 @@ layer {
   top: "conv4_x__5_sum"
 }
 
-</slice_json>
 layer {
   name: "conv4_x__5_cat"
   type: "Concat"
@@ -2105,7 +2270,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv4_x__6_c1x1-c__conv"
+  name: "slicer_conv4_x__6_c1x1-c__conv"
+  type: "Slice"
+  top: "conv4_x__6_c1x1-c-split1"
+  top: "conv4_x__6_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 1024
+  }
+}
+
 layer {
   name: "conv4_x__6_sum"
   type: "Eltwise"
@@ -2114,7 +2291,6 @@ layer {
   top: "conv4_x__6_sum"
 }
 
-</slice_json>
 layer {
   name: "conv4_x__6_cat"
   type: "Concat"
@@ -2254,7 +2430,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv4_x__7_c1x1-c__conv"
+  name: "slicer_conv4_x__7_c1x1-c__conv"
+  type: "Slice"
+  top: "conv4_x__7_c1x1-c-split1"
+  top: "conv4_x__7_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 1024
+  }
+}
+
 layer {
   name: "conv4_x__7_sum"
   type: "Eltwise"
@@ -2263,7 +2451,6 @@ layer {
   top: "conv4_x__7_sum"
 }
 
-</slice_json>
 layer {
   name: "conv4_x__7_cat"
   type: "Concat"
@@ -2403,7 +2590,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv4_x__8_c1x1-c__conv"
+  name: "slicer_conv4_x__8_c1x1-c__conv"
+  type: "Slice"
+  top: "conv4_x__8_c1x1-c-split1"
+  top: "conv4_x__8_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 1024
+  }
+}
+
 layer {
   name: "conv4_x__8_sum"
   type: "Eltwise"
@@ -2412,7 +2611,6 @@ layer {
   top: "conv4_x__8_sum"
 }
 
-</slice_json>
 layer {
   name: "conv4_x__8_cat"
   type: "Concat"
@@ -2552,7 +2750,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv4_x__9_c1x1-c__conv"
+  name: "slicer_conv4_x__9_c1x1-c__conv"
+  type: "Slice"
+  top: "conv4_x__9_c1x1-c-split1"
+  top: "conv4_x__9_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 1024
+  }
+}
+
 layer {
   name: "conv4_x__9_sum"
   type: "Eltwise"
@@ -2561,7 +2771,6 @@ layer {
   top: "conv4_x__9_sum"
 }
 
-</slice_json>
 layer {
   name: "conv4_x__9_cat"
   type: "Concat"
@@ -2701,7 +2910,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv4_x__10_c1x1-c__conv"
+  name: "slicer_conv4_x__10_c1x1-c__conv"
+  type: "Slice"
+  top: "conv4_x__10_c1x1-c-split1"
+  top: "conv4_x__10_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 1024
+  }
+}
+
 layer {
   name: "conv4_x__10_sum"
   type: "Eltwise"
@@ -2710,7 +2931,6 @@ layer {
   top: "conv4_x__10_sum"
 }
 
-</slice_json>
 layer {
   name: "conv4_x__10_cat"
   type: "Concat"
@@ -2850,7 +3070,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv4_x__11_c1x1-c__conv"
+  name: "slicer_conv4_x__11_c1x1-c__conv"
+  type: "Slice"
+  top: "conv4_x__11_c1x1-c-split1"
+  top: "conv4_x__11_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 1024
+  }
+}
+
 layer {
   name: "conv4_x__11_sum"
   type: "Eltwise"
@@ -2859,7 +3091,6 @@ layer {
   top: "conv4_x__11_sum"
 }
 
-</slice_json>
 layer {
   name: "conv4_x__11_cat"
   type: "Concat"
@@ -2999,7 +3230,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv4_x__12_c1x1-c__conv"
+  name: "slicer_conv4_x__12_c1x1-c__conv"
+  type: "Slice"
+  top: "conv4_x__12_c1x1-c-split1"
+  top: "conv4_x__12_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 1024
+  }
+}
+
 layer {
   name: "conv4_x__12_sum"
   type: "Eltwise"
@@ -3008,7 +3251,6 @@ layer {
   top: "conv4_x__12_sum"
 }
 
-</slice_json>
 layer {
   name: "conv4_x__12_cat"
   type: "Concat"
@@ -3148,7 +3390,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv4_x__13_c1x1-c__conv"
+  name: "slicer_conv4_x__13_c1x1-c__conv"
+  type: "Slice"
+  top: "conv4_x__13_c1x1-c-split1"
+  top: "conv4_x__13_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 1024
+  }
+}
+
 layer {
   name: "conv4_x__13_sum"
   type: "Eltwise"
@@ -3157,7 +3411,6 @@ layer {
   top: "conv4_x__13_sum"
 }
 
-</slice_json>
 layer {
   name: "conv4_x__13_cat"
   type: "Concat"
@@ -3297,7 +3550,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv4_x__14_c1x1-c__conv"
+  name: "slicer_conv4_x__14_c1x1-c__conv"
+  type: "Slice"
+  top: "conv4_x__14_c1x1-c-split1"
+  top: "conv4_x__14_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 1024
+  }
+}
+
 layer {
   name: "conv4_x__14_sum"
   type: "Eltwise"
@@ -3306,7 +3571,6 @@ layer {
   top: "conv4_x__14_sum"
 }
 
-</slice_json>
 layer {
   name: "conv4_x__14_cat"
   type: "Concat"
@@ -3446,7 +3710,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv4_x__15_c1x1-c__conv"
+  name: "slicer_conv4_x__15_c1x1-c__conv"
+  type: "Slice"
+  top: "conv4_x__15_c1x1-c-split1"
+  top: "conv4_x__15_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 1024
+  }
+}
+
 layer {
   name: "conv4_x__15_sum"
   type: "Eltwise"
@@ -3455,7 +3731,6 @@ layer {
   top: "conv4_x__15_sum"
 }
 
-</slice_json>
 layer {
   name: "conv4_x__15_cat"
   type: "Concat"
@@ -3595,7 +3870,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv4_x__16_c1x1-c__conv"
+  name: "slicer_conv4_x__16_c1x1-c__conv"
+  type: "Slice"
+  top: "conv4_x__16_c1x1-c-split1"
+  top: "conv4_x__16_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 1024
+  }
+}
+
 layer {
   name: "conv4_x__16_sum"
   type: "Eltwise"
@@ -3604,7 +3891,6 @@ layer {
   top: "conv4_x__16_sum"
 }
 
-</slice_json>
 layer {
   name: "conv4_x__16_cat"
   type: "Concat"
@@ -3744,7 +4030,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv4_x__17_c1x1-c__conv"
+  name: "slicer_conv4_x__17_c1x1-c__conv"
+  type: "Slice"
+  top: "conv4_x__17_c1x1-c-split1"
+  top: "conv4_x__17_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 1024
+  }
+}
+
 layer {
   name: "conv4_x__17_sum"
   type: "Eltwise"
@@ -3753,7 +4051,6 @@ layer {
   top: "conv4_x__17_sum"
 }
 
-</slice_json>
 layer {
   name: "conv4_x__17_cat"
   type: "Concat"
@@ -3893,7 +4190,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv4_x__18_c1x1-c__conv"
+  name: "slicer_conv4_x__18_c1x1-c__conv"
+  type: "Slice"
+  top: "conv4_x__18_c1x1-c-split1"
+  top: "conv4_x__18_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 1024
+  }
+}
+
 layer {
   name: "conv4_x__18_sum"
   type: "Eltwise"
@@ -3902,7 +4211,6 @@ layer {
   top: "conv4_x__18_sum"
 }
 
-</slice_json>
 layer {
   name: "conv4_x__18_cat"
   type: "Concat"
@@ -4042,7 +4350,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv4_x__19_c1x1-c__conv"
+  name: "slicer_conv4_x__19_c1x1-c__conv"
+  type: "Slice"
+  top: "conv4_x__19_c1x1-c-split1"
+  top: "conv4_x__19_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 1024
+  }
+}
+
 layer {
   name: "conv4_x__19_sum"
   type: "Eltwise"
@@ -4051,7 +4371,6 @@ layer {
   top: "conv4_x__19_sum"
 }
 
-</slice_json>
 layer {
   name: "conv4_x__19_cat"
   type: "Concat"
@@ -4191,7 +4510,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv4_x__20_c1x1-c__conv"
+  name: "slicer_conv4_x__20_c1x1-c__conv"
+  type: "Slice"
+  top: "conv4_x__20_c1x1-c-split1"
+  top: "conv4_x__20_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 1024
+  }
+}
+
 layer {
   name: "conv4_x__20_sum"
   type: "Eltwise"
@@ -4200,7 +4531,6 @@ layer {
   top: "conv4_x__20_sum"
 }
 
-</slice_json>
 layer {
   name: "conv4_x__20_cat"
   type: "Concat"
@@ -4258,7 +4588,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv5_x__1_c1x1-w(s/2)__conv"
+  name: "slicer_conv5_x__1_c1x1-w(s/2)__conv"
+  type: "Slice"
+  top: "conv5_x__1_c1x1-w(s/2)-split1"
+  top: "conv5_x__1_c1x1-w(s/2)-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 2048
+  }
+}
+
 layer {
   bottom: "conv5_x__1_cat-input"
   top: "conv5_x__1_c1x1-a__bn__bn"
@@ -4382,7 +4724,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv5_x__1_c1x1-c__conv"
+  name: "slicer_conv5_x__1_c1x1-c__conv"
+  type: "Slice"
+  top: "conv5_x__1_c1x1-c-split1"
+  top: "conv5_x__1_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 2048
+  }
+}
+
 layer {
   name: "conv5_x__1_sum"
   type: "Eltwise"
@@ -4391,8 +4745,6 @@ layer {
   top: "conv5_x__1_sum"
 }
 
-</slice_json>
-</slice_json>
 layer {
   name: "conv5_x__1_cat"
   type: "Concat"
@@ -4532,7 +4884,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv5_x__2_c1x1-c__conv"
+  name: "slicer_conv5_x__2_c1x1-c__conv"
+  type: "Slice"
+  top: "conv5_x__2_c1x1-c-split1"
+  top: "conv5_x__2_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 2048
+  }
+}
+
 layer {
   name: "conv5_x__2_sum"
   type: "Eltwise"
@@ -4541,7 +4905,6 @@ layer {
   top: "conv5_x__2_sum"
 }
 
-</slice_json>
 layer {
   name: "conv5_x__2_cat"
   type: "Concat"
@@ -4681,7 +5044,19 @@ layer {
 	}
 }
 
-</slice_json>
+
+layer {
+  bottom: "conv5_x__3_c1x1-c__conv"
+  name: "slicer_conv5_x__3_c1x1-c__conv"
+  type: "Slice"
+  top: "conv5_x__3_c1x1-c-split1"
+  top: "conv5_x__3_c1x1-c-split2"
+  slice_param {
+  	axis: 1
+  	slice_point: 2048
+  }
+}
+
 layer {
   name: "conv5_x__3_sum"
   type: "Eltwise"
@@ -4690,7 +5065,6 @@ layer {
   top: "conv5_x__3_sum"
 }
 
-</slice_json>
 layer {
   name: "conv5_x__3_cat"
   type: "Concat"
@@ -4763,411 +5137,3 @@ layer {
   }
 }
 
-
-layer {
-  bottom: "conv4_x__3_c1x1-c__conv"
-  name: "slicer_conv4_x__3_c1x1-c__conv"
-  type: "Slice"
-  top: "conv4_x__3_c1x1-c-split1"
-  top: "conv4_x__3_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 1024
-  }
-}
-
-layer {
-  bottom: "conv5_x__3_c1x1-c__conv"
-  name: "slicer_conv5_x__3_c1x1-c__conv"
-  type: "Slice"
-  top: "conv5_x__3_c1x1-c-split1"
-  top: "conv5_x__3_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 2048
-  }
-}
-
-layer {
-  bottom: "conv4_x__6_c1x1-c__conv"
-  name: "slicer_conv4_x__6_c1x1-c__conv"
-  type: "Slice"
-  top: "conv4_x__6_c1x1-c-split1"
-  top: "conv4_x__6_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 1024
-  }
-}
-
-layer {
-  bottom: "conv4_x__10_c1x1-c__conv"
-  name: "slicer_conv4_x__10_c1x1-c__conv"
-  type: "Slice"
-  top: "conv4_x__10_c1x1-c-split1"
-  top: "conv4_x__10_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 1024
-  }
-}
-
-layer {
-  bottom: "conv4_x__20_c1x1-c__conv"
-  name: "slicer_conv4_x__20_c1x1-c__conv"
-  type: "Slice"
-  top: "conv4_x__20_c1x1-c-split1"
-  top: "conv4_x__20_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 1024
-  }
-}
-
-layer {
-  bottom: "conv3_x__1_c1x1-c__conv"
-  name: "slicer_conv3_x__1_c1x1-c__conv"
-  type: "Slice"
-  top: "conv3_x__1_c1x1-c-split1"
-  top: "conv3_x__1_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 512
-  }
-}
-
-layer {
-  bottom: "conv3_x__1_c1x1-w(s/2)__conv"
-  name: "slicer_conv3_x__1_c1x1-w(s/2)__conv"
-  type: "Slice"
-  top: "conv3_x__1_c1x1-w(s/2)-split1"
-  top: "conv3_x__1_c1x1-w(s/2)-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 512
-  }
-}
-
-layer {
-  bottom: "conv4_x__1_c1x1-c__conv"
-  name: "slicer_conv4_x__1_c1x1-c__conv"
-  type: "Slice"
-  top: "conv4_x__1_c1x1-c-split1"
-  top: "conv4_x__1_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 1024
-  }
-}
-
-layer {
-  bottom: "conv2_x__2_c1x1-c__conv"
-  name: "slicer_conv2_x__2_c1x1-c__conv"
-  type: "Slice"
-  top: "conv2_x__2_c1x1-c-split1"
-  top: "conv2_x__2_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 256
-  }
-}
-
-layer {
-  bottom: "conv4_x__9_c1x1-c__conv"
-  name: "slicer_conv4_x__9_c1x1-c__conv"
-  type: "Slice"
-  top: "conv4_x__9_c1x1-c-split1"
-  top: "conv4_x__9_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 1024
-  }
-}
-
-layer {
-  bottom: "conv4_x__1_c1x1-w(s/2)__conv"
-  name: "slicer_conv4_x__1_c1x1-w(s/2)__conv"
-  type: "Slice"
-  top: "conv4_x__1_c1x1-w(s/2)-split1"
-  top: "conv4_x__1_c1x1-w(s/2)-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 1024
-  }
-}
-
-layer {
-  bottom: "conv3_x__4_c1x1-c__conv"
-  name: "slicer_conv3_x__4_c1x1-c__conv"
-  type: "Slice"
-  top: "conv3_x__4_c1x1-c-split1"
-  top: "conv3_x__4_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 512
-  }
-}
-
-layer {
-  bottom: "conv2_x__1_c1x1-c__conv"
-  name: "slicer_conv2_x__1_c1x1-c__conv"
-  type: "Slice"
-  top: "conv2_x__1_c1x1-c-split1"
-  top: "conv2_x__1_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 256
-  }
-}
-
-layer {
-  bottom: "conv3_x__2_c1x1-c__conv"
-  name: "slicer_conv3_x__2_c1x1-c__conv"
-  type: "Slice"
-  top: "conv3_x__2_c1x1-c-split1"
-  top: "conv3_x__2_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 512
-  }
-}
-
-layer {
-  bottom: "conv3_x__3_c1x1-c__conv"
-  name: "slicer_conv3_x__3_c1x1-c__conv"
-  type: "Slice"
-  top: "conv3_x__3_c1x1-c-split1"
-  top: "conv3_x__3_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 512
-  }
-}
-
-layer {
-  bottom: "conv4_x__18_c1x1-c__conv"
-  name: "slicer_conv4_x__18_c1x1-c__conv"
-  type: "Slice"
-  top: "conv4_x__18_c1x1-c-split1"
-  top: "conv4_x__18_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 1024
-  }
-}
-
-layer {
-  bottom: "conv4_x__12_c1x1-c__conv"
-  name: "slicer_conv4_x__12_c1x1-c__conv"
-  type: "Slice"
-  top: "conv4_x__12_c1x1-c-split1"
-  top: "conv4_x__12_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 1024
-  }
-}
-
-layer {
-  bottom: "conv4_x__19_c1x1-c__conv"
-  name: "slicer_conv4_x__19_c1x1-c__conv"
-  type: "Slice"
-  top: "conv4_x__19_c1x1-c-split1"
-  top: "conv4_x__19_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 1024
-  }
-}
-
-layer {
-  bottom: "conv4_x__15_c1x1-c__conv"
-  name: "slicer_conv4_x__15_c1x1-c__conv"
-  type: "Slice"
-  top: "conv4_x__15_c1x1-c-split1"
-  top: "conv4_x__15_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 1024
-  }
-}
-
-layer {
-  bottom: "conv4_x__16_c1x1-c__conv"
-  name: "slicer_conv4_x__16_c1x1-c__conv"
-  type: "Slice"
-  top: "conv4_x__16_c1x1-c-split1"
-  top: "conv4_x__16_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 1024
-  }
-}
-
-layer {
-  bottom: "conv5_x__1_c1x1-w(s/2)__conv"
-  name: "slicer_conv5_x__1_c1x1-w(s/2)__conv"
-  type: "Slice"
-  top: "conv5_x__1_c1x1-w(s/2)-split1"
-  top: "conv5_x__1_c1x1-w(s/2)-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 2048
-  }
-}
-
-layer {
-  bottom: "conv2_x__3_c1x1-c__conv"
-  name: "slicer_conv2_x__3_c1x1-c__conv"
-  type: "Slice"
-  top: "conv2_x__3_c1x1-c-split1"
-  top: "conv2_x__3_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 256
-  }
-}
-
-layer {
-  bottom: "conv4_x__4_c1x1-c__conv"
-  name: "slicer_conv4_x__4_c1x1-c__conv"
-  type: "Slice"
-  top: "conv4_x__4_c1x1-c-split1"
-  top: "conv4_x__4_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 1024
-  }
-}
-
-layer {
-  bottom: "conv5_x__2_c1x1-c__conv"
-  name: "slicer_conv5_x__2_c1x1-c__conv"
-  type: "Slice"
-  top: "conv5_x__2_c1x1-c-split1"
-  top: "conv5_x__2_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 2048
-  }
-}
-
-layer {
-  bottom: "conv4_x__14_c1x1-c__conv"
-  name: "slicer_conv4_x__14_c1x1-c__conv"
-  type: "Slice"
-  top: "conv4_x__14_c1x1-c-split1"
-  top: "conv4_x__14_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 1024
-  }
-}
-
-layer {
-  bottom: "conv4_x__5_c1x1-c__conv"
-  name: "slicer_conv4_x__5_c1x1-c__conv"
-  type: "Slice"
-  top: "conv4_x__5_c1x1-c-split1"
-  top: "conv4_x__5_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 1024
-  }
-}
-
-layer {
-  bottom: "conv5_x__1_c1x1-c__conv"
-  name: "slicer_conv5_x__1_c1x1-c__conv"
-  type: "Slice"
-  top: "conv5_x__1_c1x1-c-split1"
-  top: "conv5_x__1_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 2048
-  }
-}
-
-layer {
-  bottom: "conv4_x__2_c1x1-c__conv"
-  name: "slicer_conv4_x__2_c1x1-c__conv"
-  type: "Slice"
-  top: "conv4_x__2_c1x1-c-split1"
-  top: "conv4_x__2_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 1024
-  }
-}
-
-layer {
-  bottom: "conv4_x__11_c1x1-c__conv"
-  name: "slicer_conv4_x__11_c1x1-c__conv"
-  type: "Slice"
-  top: "conv4_x__11_c1x1-c-split1"
-  top: "conv4_x__11_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 1024
-  }
-}
-
-layer {
-  bottom: "conv4_x__8_c1x1-c__conv"
-  name: "slicer_conv4_x__8_c1x1-c__conv"
-  type: "Slice"
-  top: "conv4_x__8_c1x1-c-split1"
-  top: "conv4_x__8_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 1024
-  }
-}
-
-layer {
-  bottom: "conv4_x__13_c1x1-c__conv"
-  name: "slicer_conv4_x__13_c1x1-c__conv"
-  type: "Slice"
-  top: "conv4_x__13_c1x1-c-split1"
-  top: "conv4_x__13_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 1024
-  }
-}
-
-layer {
-  bottom: "conv4_x__17_c1x1-c__conv"
-  name: "slicer_conv4_x__17_c1x1-c__conv"
-  type: "Slice"
-  top: "conv4_x__17_c1x1-c-split1"
-  top: "conv4_x__17_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 1024
-  }
-}
-
-layer {
-  bottom: "conv2_x__1_c1x1-w(s/1)__conv"
-  name: "slicer_conv2_x__1_c1x1-w(s/1)__conv"
-  type: "Slice"
-  top: "conv2_x__1_c1x1-w(s/1)-split1"
-  top: "conv2_x__1_c1x1-w(s/1)-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 256
-  }
-}
-
-layer {
-  bottom: "conv4_x__7_c1x1-c__conv"
-  name: "slicer_conv4_x__7_c1x1-c__conv"
-  type: "Slice"
-  top: "conv4_x__7_c1x1-c-split1"
-  top: "conv4_x__7_c1x1-c-split2"
-  slice_param {
-  	axis: 1
-  	slice_point: 1024
-  }
-}
