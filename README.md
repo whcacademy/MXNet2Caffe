@@ -13,10 +13,12 @@ After that, simply run `python json2prototxt.py` to generate the corresponding `
 
 And then, using `python mxnet2caffe.py` to generate the corresponding `.caffemodel`.
 
+This version is change by Haicheng in order to handle more features, if your MXNet model contain slice operator, please use parsing_slice_layer.py to parse output layer produced by this version of MXNet2Caffe.
 
 ## TODO
 
 [1] Since their is not `Flaten` layer in caffe, you have to manually moidify the automatically generated `.prototxt`. In other words, you have to change the `bottom` of the layer just after the `Falatten` layer making it linking to the layer before the `Falatten` layer. Currently, this part has to be done manually.
+(Solved since caffe support falatten layer now)
 
 [2] The converted model performances a little bit worse than the original MXNet model.
 
