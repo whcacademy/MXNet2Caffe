@@ -50,11 +50,11 @@ def BatchNorm(txt_file, info):
   txt_file.write('  top: "%s"\n'          % info['top'])
   txt_file.write('  name: "%s"\n'         % info['top'])
   txt_file.write('  type: "BatchNorm"\n')
-  txt_file.write('  batch_norm_param {\n')
-  txt_file.write('    use_global_stats: true\n')        # TODO
-  txt_file.write('    moving_average_fraction: 0.9\n')  # TODO
-  txt_file.write('    eps: 0.001\n')                    # TODO
-  txt_file.write('  }\n')
+  # txt_file.write('  batch_norm_param {\n')
+  # txt_file.write('    use_global_stats: true\n')        # TODO
+  # txt_file.write('    moving_average_fraction: 0.9\n')  # TODO
+  # txt_file.write('    eps: 0.001\n')                    # TODO
+  # txt_file.write('  }\n')
   txt_file.write('}\n')
   # if info['fix_gamma'] is "False":                    # TODO
   txt_file.write('layer {\n')
