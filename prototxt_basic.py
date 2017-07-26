@@ -50,6 +50,9 @@ def BatchNorm(txt_file, info):
   txt_file.write('  top: "%s"\n'          % info['top'])
   txt_file.write('  name: "%s"\n'         % info['top'])
   txt_file.write('  type: "BatchNorm"\n')
+
+  ## remove since caffe will handle use_global_stats automatically
+  ## and other params are not in used now
   # txt_file.write('  batch_norm_param {\n')
   # txt_file.write('    use_global_stats: true\n')        # TODO
   # txt_file.write('    moving_average_fraction: 0.9\n')  # TODO

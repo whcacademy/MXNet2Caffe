@@ -31,11 +31,6 @@ layer {
   top: "conv1_x_1__relu-sp__bn"
   name: "conv1_x_1__relu-sp__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv1_x_1__relu-sp__bn"
@@ -70,11 +65,6 @@ layer {
   top: "conv2_x__1_c1x1-w(s/1)__bn__bn"
   name: "conv2_x__1_c1x1-w(s/1)__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv2_x__1_c1x1-w(s/1)__bn__bn"
@@ -107,18 +97,13 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[13, 0]], u'name': u'conv2_x__1_c1x1-w(s/1)-split1', 'bottom': ['conv2_x__1_c1x1-w(s/1)__conv'], 'top': u'conv2_x__1_c1x1-w(s/1)-split1', u'param': {u'begin': u'0', u'end': u'256', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '256', 'begin': '0'}, 'top': 'conv2_x__1_c1x1-w(s/1)-split1', 'name': 'conv2_x__1_c1x1-w(s/1)-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[13, 0]], 'backward_source_id': -1, 'bottom': ['conv2_x__1_c1x1-w(s/1)__conv']}
 </slice_json>
 layer {
   bottom: "pool1"
   top: "conv2_x__1_c1x1-a__bn__bn"
   name: "conv2_x__1_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv2_x__1_c1x1-a__bn__bn"
@@ -155,11 +140,6 @@ layer {
   top: "conv2_x__1_c3x3-b__bn__bn"
   name: "conv2_x__1_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv2_x__1_c3x3-b__bn__bn"
@@ -196,11 +176,6 @@ layer {
   top: "conv2_x__1_c1x1-c__bn__bn"
   name: "conv2_x__1_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv2_x__1_c1x1-c__bn__bn"
@@ -233,7 +208,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[32, 0]], u'name': u'conv2_x__1_c1x1-c-split1', 'bottom': ['conv2_x__1_c1x1-c__conv'], 'top': u'conv2_x__1_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'256', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '256', 'begin': '0'}, 'top': 'conv2_x__1_c1x1-c-split1', 'name': 'conv2_x__1_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[32, 0]], 'backward_source_id': -1, 'bottom': ['conv2_x__1_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv2_x__1_sum"
@@ -244,10 +219,10 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[13, 0]], u'name': u'conv2_x__1_c1x1-w(s/1)-split2', 'bottom': ['conv2_x__1_c1x1-w(s/1)__conv'], 'top': u'conv2_x__1_c1x1-w(s/1)-split2', u'param': {u'begin': u'256', u'end': u'288', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '288', 'begin': '256'}, 'top': 'conv2_x__1_c1x1-w(s/1)-split2', 'name': 'conv2_x__1_c1x1-w(s/1)-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[13, 0]], 'backward_source_id': -1, 'bottom': ['conv2_x__1_c1x1-w(s/1)__conv']}
 </slice_json>
 <slice_json>
-{u'inputs': [[32, 0]], u'name': u'conv2_x__1_c1x1-c-split2', 'bottom': ['conv2_x__1_c1x1-c__conv'], 'top': u'conv2_x__1_c1x1-c-split2', u'param': {u'begin': u'256', u'end': u'272', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '272', 'begin': '256'}, 'top': 'conv2_x__1_c1x1-c-split2', 'name': 'conv2_x__1_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[32, 0]], 'backward_source_id': -1, 'bottom': ['conv2_x__1_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv2_x__1_cat"
@@ -270,11 +245,6 @@ layer {
   top: "conv2_x__2_c1x1-a__bn__bn"
   name: "conv2_x__2_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv2_x__2_c1x1-a__bn__bn"
@@ -311,11 +281,6 @@ layer {
   top: "conv2_x__2_c3x3-b__bn__bn"
   name: "conv2_x__2_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv2_x__2_c3x3-b__bn__bn"
@@ -352,11 +317,6 @@ layer {
   top: "conv2_x__2_c1x1-c__bn__bn"
   name: "conv2_x__2_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv2_x__2_c1x1-c__bn__bn"
@@ -389,7 +349,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[56, 0]], u'name': u'conv2_x__2_c1x1-c-split1', 'bottom': ['conv2_x__2_c1x1-c__conv'], 'top': u'conv2_x__2_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'256', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '256', 'begin': '0'}, 'top': 'conv2_x__2_c1x1-c-split1', 'name': 'conv2_x__2_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[56, 0]], 'backward_source_id': -1, 'bottom': ['conv2_x__2_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv2_x__2_sum"
@@ -400,7 +360,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[56, 0]], u'name': u'conv2_x__2_c1x1-c-split2', 'bottom': ['conv2_x__2_c1x1-c__conv'], 'top': u'conv2_x__2_c1x1-c-split2', u'param': {u'begin': u'256', u'end': u'272', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '272', 'begin': '256'}, 'top': 'conv2_x__2_c1x1-c-split2', 'name': 'conv2_x__2_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[56, 0]], 'backward_source_id': -1, 'bottom': ['conv2_x__2_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv2_x__2_cat"
@@ -423,11 +383,6 @@ layer {
   top: "conv2_x__3_c1x1-a__bn__bn"
   name: "conv2_x__3_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv2_x__3_c1x1-a__bn__bn"
@@ -464,11 +419,6 @@ layer {
   top: "conv2_x__3_c3x3-b__bn__bn"
   name: "conv2_x__3_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv2_x__3_c3x3-b__bn__bn"
@@ -505,11 +455,6 @@ layer {
   top: "conv2_x__3_c1x1-c__bn__bn"
   name: "conv2_x__3_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv2_x__3_c1x1-c__bn__bn"
@@ -542,7 +487,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[79, 0]], u'name': u'conv2_x__3_c1x1-c-split1', 'bottom': ['conv2_x__3_c1x1-c__conv'], 'top': u'conv2_x__3_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'256', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '256', 'begin': '0'}, 'top': 'conv2_x__3_c1x1-c-split1', 'name': 'conv2_x__3_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[79, 0]], 'backward_source_id': -1, 'bottom': ['conv2_x__3_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv2_x__3_sum"
@@ -553,7 +498,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[79, 0]], u'name': u'conv2_x__3_c1x1-c-split2', 'bottom': ['conv2_x__3_c1x1-c__conv'], 'top': u'conv2_x__3_c1x1-c-split2', u'param': {u'begin': u'256', u'end': u'272', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '272', 'begin': '256'}, 'top': 'conv2_x__3_c1x1-c-split2', 'name': 'conv2_x__3_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[79, 0]], 'backward_source_id': -1, 'bottom': ['conv2_x__3_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv2_x__3_cat"
@@ -576,11 +521,6 @@ layer {
   top: "conv3_x__1_c1x1-w(s/2)__bn__bn"
   name: "conv3_x__1_c1x1-w(s/2)__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv3_x__1_c1x1-w(s/2)__bn__bn"
@@ -613,18 +553,13 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[90, 0]], u'name': u'conv3_x__1_c1x1-w(s/2)-split1', 'bottom': ['conv3_x__1_c1x1-w(s/2)__conv'], 'top': u'conv3_x__1_c1x1-w(s/2)-split1', u'param': {u'begin': u'0', u'end': u'512', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '512', 'begin': '0'}, 'top': 'conv3_x__1_c1x1-w(s/2)-split1', 'name': 'conv3_x__1_c1x1-w(s/2)-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[90, 0]], 'backward_source_id': -1, 'bottom': ['conv3_x__1_c1x1-w(s/2)__conv']}
 </slice_json>
 layer {
   bottom: "conv3_x__1_cat-input"
   top: "conv3_x__1_c1x1-a__bn__bn"
   name: "conv3_x__1_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv3_x__1_c1x1-a__bn__bn"
@@ -661,11 +596,6 @@ layer {
   top: "conv3_x__1_c3x3-b__bn__bn"
   name: "conv3_x__1_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv3_x__1_c3x3-b__bn__bn"
@@ -702,11 +632,6 @@ layer {
   top: "conv3_x__1_c1x1-c__bn__bn"
   name: "conv3_x__1_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv3_x__1_c1x1-c__bn__bn"
@@ -739,7 +664,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[109, 0]], u'name': u'conv3_x__1_c1x1-c-split1', 'bottom': ['conv3_x__1_c1x1-c__conv'], 'top': u'conv3_x__1_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'512', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '512', 'begin': '0'}, 'top': 'conv3_x__1_c1x1-c-split1', 'name': 'conv3_x__1_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[109, 0]], 'backward_source_id': -1, 'bottom': ['conv3_x__1_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv3_x__1_sum"
@@ -750,10 +675,10 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[90, 0]], u'name': u'conv3_x__1_c1x1-w(s/2)-split2', 'bottom': ['conv3_x__1_c1x1-w(s/2)__conv'], 'top': u'conv3_x__1_c1x1-w(s/2)-split2', u'param': {u'begin': u'512', u'end': u'576', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '576', 'begin': '512'}, 'top': 'conv3_x__1_c1x1-w(s/2)-split2', 'name': 'conv3_x__1_c1x1-w(s/2)-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[90, 0]], 'backward_source_id': -1, 'bottom': ['conv3_x__1_c1x1-w(s/2)__conv']}
 </slice_json>
 <slice_json>
-{u'inputs': [[109, 0]], u'name': u'conv3_x__1_c1x1-c-split2', 'bottom': ['conv3_x__1_c1x1-c__conv'], 'top': u'conv3_x__1_c1x1-c-split2', u'param': {u'begin': u'512', u'end': u'544', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '544', 'begin': '512'}, 'top': 'conv3_x__1_c1x1-c-split2', 'name': 'conv3_x__1_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[109, 0]], 'backward_source_id': -1, 'bottom': ['conv3_x__1_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv3_x__1_cat"
@@ -776,11 +701,6 @@ layer {
   top: "conv3_x__2_c1x1-a__bn__bn"
   name: "conv3_x__2_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv3_x__2_c1x1-a__bn__bn"
@@ -817,11 +737,6 @@ layer {
   top: "conv3_x__2_c3x3-b__bn__bn"
   name: "conv3_x__2_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv3_x__2_c3x3-b__bn__bn"
@@ -858,11 +773,6 @@ layer {
   top: "conv3_x__2_c1x1-c__bn__bn"
   name: "conv3_x__2_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv3_x__2_c1x1-c__bn__bn"
@@ -895,7 +805,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[133, 0]], u'name': u'conv3_x__2_c1x1-c-split1', 'bottom': ['conv3_x__2_c1x1-c__conv'], 'top': u'conv3_x__2_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'512', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '512', 'begin': '0'}, 'top': 'conv3_x__2_c1x1-c-split1', 'name': 'conv3_x__2_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[133, 0]], 'backward_source_id': -1, 'bottom': ['conv3_x__2_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv3_x__2_sum"
@@ -906,7 +816,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[133, 0]], u'name': u'conv3_x__2_c1x1-c-split2', 'bottom': ['conv3_x__2_c1x1-c__conv'], 'top': u'conv3_x__2_c1x1-c-split2', u'param': {u'begin': u'512', u'end': u'544', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '544', 'begin': '512'}, 'top': 'conv3_x__2_c1x1-c-split2', 'name': 'conv3_x__2_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[133, 0]], 'backward_source_id': -1, 'bottom': ['conv3_x__2_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv3_x__2_cat"
@@ -929,11 +839,6 @@ layer {
   top: "conv3_x__3_c1x1-a__bn__bn"
   name: "conv3_x__3_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv3_x__3_c1x1-a__bn__bn"
@@ -970,11 +875,6 @@ layer {
   top: "conv3_x__3_c3x3-b__bn__bn"
   name: "conv3_x__3_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv3_x__3_c3x3-b__bn__bn"
@@ -1011,11 +911,6 @@ layer {
   top: "conv3_x__3_c1x1-c__bn__bn"
   name: "conv3_x__3_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv3_x__3_c1x1-c__bn__bn"
@@ -1048,7 +943,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[156, 0]], u'name': u'conv3_x__3_c1x1-c-split1', 'bottom': ['conv3_x__3_c1x1-c__conv'], 'top': u'conv3_x__3_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'512', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '512', 'begin': '0'}, 'top': 'conv3_x__3_c1x1-c-split1', 'name': 'conv3_x__3_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[156, 0]], 'backward_source_id': -1, 'bottom': ['conv3_x__3_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv3_x__3_sum"
@@ -1059,7 +954,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[156, 0]], u'name': u'conv3_x__3_c1x1-c-split2', 'bottom': ['conv3_x__3_c1x1-c__conv'], 'top': u'conv3_x__3_c1x1-c-split2', u'param': {u'begin': u'512', u'end': u'544', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '544', 'begin': '512'}, 'top': 'conv3_x__3_c1x1-c-split2', 'name': 'conv3_x__3_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[156, 0]], 'backward_source_id': -1, 'bottom': ['conv3_x__3_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv3_x__3_cat"
@@ -1082,11 +977,6 @@ layer {
   top: "conv3_x__4_c1x1-a__bn__bn"
   name: "conv3_x__4_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv3_x__4_c1x1-a__bn__bn"
@@ -1123,11 +1013,6 @@ layer {
   top: "conv3_x__4_c3x3-b__bn__bn"
   name: "conv3_x__4_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv3_x__4_c3x3-b__bn__bn"
@@ -1164,11 +1049,6 @@ layer {
   top: "conv3_x__4_c1x1-c__bn__bn"
   name: "conv3_x__4_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv3_x__4_c1x1-c__bn__bn"
@@ -1201,7 +1081,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[179, 0]], u'name': u'conv3_x__4_c1x1-c-split1', 'bottom': ['conv3_x__4_c1x1-c__conv'], 'top': u'conv3_x__4_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'512', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '512', 'begin': '0'}, 'top': 'conv3_x__4_c1x1-c-split1', 'name': 'conv3_x__4_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[179, 0]], 'backward_source_id': -1, 'bottom': ['conv3_x__4_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv3_x__4_sum"
@@ -1212,7 +1092,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[179, 0]], u'name': u'conv3_x__4_c1x1-c-split2', 'bottom': ['conv3_x__4_c1x1-c__conv'], 'top': u'conv3_x__4_c1x1-c-split2', u'param': {u'begin': u'512', u'end': u'544', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '544', 'begin': '512'}, 'top': 'conv3_x__4_c1x1-c-split2', 'name': 'conv3_x__4_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[179, 0]], 'backward_source_id': -1, 'bottom': ['conv3_x__4_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv3_x__4_cat"
@@ -1235,11 +1115,6 @@ layer {
   top: "conv4_x__1_c1x1-w(s/2)__bn__bn"
   name: "conv4_x__1_c1x1-w(s/2)__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__1_c1x1-w(s/2)__bn__bn"
@@ -1272,18 +1147,13 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[190, 0]], u'name': u'conv4_x__1_c1x1-w(s/2)-split1', 'bottom': ['conv4_x__1_c1x1-w(s/2)__conv'], 'top': u'conv4_x__1_c1x1-w(s/2)-split1', u'param': {u'begin': u'0', u'end': u'1024', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1024', 'begin': '0'}, 'top': 'conv4_x__1_c1x1-w(s/2)-split1', 'name': 'conv4_x__1_c1x1-w(s/2)-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[190, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__1_c1x1-w(s/2)__conv']}
 </slice_json>
 layer {
   bottom: "conv4_x__1_cat-input"
   top: "conv4_x__1_c1x1-a__bn__bn"
   name: "conv4_x__1_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__1_c1x1-a__bn__bn"
@@ -1320,11 +1190,6 @@ layer {
   top: "conv4_x__1_c3x3-b__bn__bn"
   name: "conv4_x__1_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__1_c3x3-b__bn__bn"
@@ -1361,11 +1226,6 @@ layer {
   top: "conv4_x__1_c1x1-c__bn__bn"
   name: "conv4_x__1_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__1_c1x1-c__bn__bn"
@@ -1398,7 +1258,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[209, 0]], u'name': u'conv4_x__1_c1x1-c-split1', 'bottom': ['conv4_x__1_c1x1-c__conv'], 'top': u'conv4_x__1_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'1024', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1024', 'begin': '0'}, 'top': 'conv4_x__1_c1x1-c-split1', 'name': 'conv4_x__1_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[209, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__1_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__1_sum"
@@ -1409,10 +1269,10 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[190, 0]], u'name': u'conv4_x__1_c1x1-w(s/2)-split2', 'bottom': ['conv4_x__1_c1x1-w(s/2)__conv'], 'top': u'conv4_x__1_c1x1-w(s/2)-split2', u'param': {u'begin': u'1024', u'end': u'1072', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1072', 'begin': '1024'}, 'top': 'conv4_x__1_c1x1-w(s/2)-split2', 'name': 'conv4_x__1_c1x1-w(s/2)-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[190, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__1_c1x1-w(s/2)__conv']}
 </slice_json>
 <slice_json>
-{u'inputs': [[209, 0]], u'name': u'conv4_x__1_c1x1-c-split2', 'bottom': ['conv4_x__1_c1x1-c__conv'], 'top': u'conv4_x__1_c1x1-c-split2', u'param': {u'begin': u'1024', u'end': u'1048', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1048', 'begin': '1024'}, 'top': 'conv4_x__1_c1x1-c-split2', 'name': 'conv4_x__1_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[209, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__1_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__1_cat"
@@ -1435,11 +1295,6 @@ layer {
   top: "conv4_x__2_c1x1-a__bn__bn"
   name: "conv4_x__2_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__2_c1x1-a__bn__bn"
@@ -1476,11 +1331,6 @@ layer {
   top: "conv4_x__2_c3x3-b__bn__bn"
   name: "conv4_x__2_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__2_c3x3-b__bn__bn"
@@ -1517,11 +1367,6 @@ layer {
   top: "conv4_x__2_c1x1-c__bn__bn"
   name: "conv4_x__2_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__2_c1x1-c__bn__bn"
@@ -1554,7 +1399,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[233, 0]], u'name': u'conv4_x__2_c1x1-c-split1', 'bottom': ['conv4_x__2_c1x1-c__conv'], 'top': u'conv4_x__2_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'1024', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1024', 'begin': '0'}, 'top': 'conv4_x__2_c1x1-c-split1', 'name': 'conv4_x__2_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[233, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__2_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__2_sum"
@@ -1565,7 +1410,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[233, 0]], u'name': u'conv4_x__2_c1x1-c-split2', 'bottom': ['conv4_x__2_c1x1-c__conv'], 'top': u'conv4_x__2_c1x1-c-split2', u'param': {u'begin': u'1024', u'end': u'1048', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1048', 'begin': '1024'}, 'top': 'conv4_x__2_c1x1-c-split2', 'name': 'conv4_x__2_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[233, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__2_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__2_cat"
@@ -1588,11 +1433,6 @@ layer {
   top: "conv4_x__3_c1x1-a__bn__bn"
   name: "conv4_x__3_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__3_c1x1-a__bn__bn"
@@ -1629,11 +1469,6 @@ layer {
   top: "conv4_x__3_c3x3-b__bn__bn"
   name: "conv4_x__3_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__3_c3x3-b__bn__bn"
@@ -1670,11 +1505,6 @@ layer {
   top: "conv4_x__3_c1x1-c__bn__bn"
   name: "conv4_x__3_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__3_c1x1-c__bn__bn"
@@ -1707,7 +1537,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[256, 0]], u'name': u'conv4_x__3_c1x1-c-split1', 'bottom': ['conv4_x__3_c1x1-c__conv'], 'top': u'conv4_x__3_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'1024', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1024', 'begin': '0'}, 'top': 'conv4_x__3_c1x1-c-split1', 'name': 'conv4_x__3_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[256, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__3_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__3_sum"
@@ -1718,7 +1548,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[256, 0]], u'name': u'conv4_x__3_c1x1-c-split2', 'bottom': ['conv4_x__3_c1x1-c__conv'], 'top': u'conv4_x__3_c1x1-c-split2', u'param': {u'begin': u'1024', u'end': u'1048', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1048', 'begin': '1024'}, 'top': 'conv4_x__3_c1x1-c-split2', 'name': 'conv4_x__3_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[256, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__3_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__3_cat"
@@ -1741,11 +1571,6 @@ layer {
   top: "conv4_x__4_c1x1-a__bn__bn"
   name: "conv4_x__4_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__4_c1x1-a__bn__bn"
@@ -1782,11 +1607,6 @@ layer {
   top: "conv4_x__4_c3x3-b__bn__bn"
   name: "conv4_x__4_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__4_c3x3-b__bn__bn"
@@ -1823,11 +1643,6 @@ layer {
   top: "conv4_x__4_c1x1-c__bn__bn"
   name: "conv4_x__4_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__4_c1x1-c__bn__bn"
@@ -1860,7 +1675,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[279, 0]], u'name': u'conv4_x__4_c1x1-c-split1', 'bottom': ['conv4_x__4_c1x1-c__conv'], 'top': u'conv4_x__4_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'1024', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1024', 'begin': '0'}, 'top': 'conv4_x__4_c1x1-c-split1', 'name': 'conv4_x__4_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[279, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__4_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__4_sum"
@@ -1871,7 +1686,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[279, 0]], u'name': u'conv4_x__4_c1x1-c-split2', 'bottom': ['conv4_x__4_c1x1-c__conv'], 'top': u'conv4_x__4_c1x1-c-split2', u'param': {u'begin': u'1024', u'end': u'1048', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1048', 'begin': '1024'}, 'top': 'conv4_x__4_c1x1-c-split2', 'name': 'conv4_x__4_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[279, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__4_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__4_cat"
@@ -1894,11 +1709,6 @@ layer {
   top: "conv4_x__5_c1x1-a__bn__bn"
   name: "conv4_x__5_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__5_c1x1-a__bn__bn"
@@ -1935,11 +1745,6 @@ layer {
   top: "conv4_x__5_c3x3-b__bn__bn"
   name: "conv4_x__5_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__5_c3x3-b__bn__bn"
@@ -1976,11 +1781,6 @@ layer {
   top: "conv4_x__5_c1x1-c__bn__bn"
   name: "conv4_x__5_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__5_c1x1-c__bn__bn"
@@ -2013,7 +1813,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[302, 0]], u'name': u'conv4_x__5_c1x1-c-split1', 'bottom': ['conv4_x__5_c1x1-c__conv'], 'top': u'conv4_x__5_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'1024', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1024', 'begin': '0'}, 'top': 'conv4_x__5_c1x1-c-split1', 'name': 'conv4_x__5_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[302, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__5_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__5_sum"
@@ -2024,7 +1824,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[302, 0]], u'name': u'conv4_x__5_c1x1-c-split2', 'bottom': ['conv4_x__5_c1x1-c__conv'], 'top': u'conv4_x__5_c1x1-c-split2', u'param': {u'begin': u'1024', u'end': u'1048', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1048', 'begin': '1024'}, 'top': 'conv4_x__5_c1x1-c-split2', 'name': 'conv4_x__5_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[302, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__5_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__5_cat"
@@ -2047,11 +1847,6 @@ layer {
   top: "conv4_x__6_c1x1-a__bn__bn"
   name: "conv4_x__6_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__6_c1x1-a__bn__bn"
@@ -2088,11 +1883,6 @@ layer {
   top: "conv4_x__6_c3x3-b__bn__bn"
   name: "conv4_x__6_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__6_c3x3-b__bn__bn"
@@ -2129,11 +1919,6 @@ layer {
   top: "conv4_x__6_c1x1-c__bn__bn"
   name: "conv4_x__6_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__6_c1x1-c__bn__bn"
@@ -2166,7 +1951,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[325, 0]], u'name': u'conv4_x__6_c1x1-c-split1', 'bottom': ['conv4_x__6_c1x1-c__conv'], 'top': u'conv4_x__6_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'1024', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1024', 'begin': '0'}, 'top': 'conv4_x__6_c1x1-c-split1', 'name': 'conv4_x__6_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[325, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__6_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__6_sum"
@@ -2177,7 +1962,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[325, 0]], u'name': u'conv4_x__6_c1x1-c-split2', 'bottom': ['conv4_x__6_c1x1-c__conv'], 'top': u'conv4_x__6_c1x1-c-split2', u'param': {u'begin': u'1024', u'end': u'1048', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1048', 'begin': '1024'}, 'top': 'conv4_x__6_c1x1-c-split2', 'name': 'conv4_x__6_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[325, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__6_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__6_cat"
@@ -2200,11 +1985,6 @@ layer {
   top: "conv4_x__7_c1x1-a__bn__bn"
   name: "conv4_x__7_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__7_c1x1-a__bn__bn"
@@ -2241,11 +2021,6 @@ layer {
   top: "conv4_x__7_c3x3-b__bn__bn"
   name: "conv4_x__7_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__7_c3x3-b__bn__bn"
@@ -2282,11 +2057,6 @@ layer {
   top: "conv4_x__7_c1x1-c__bn__bn"
   name: "conv4_x__7_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__7_c1x1-c__bn__bn"
@@ -2319,7 +2089,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[348, 0]], u'name': u'conv4_x__7_c1x1-c-split1', 'bottom': ['conv4_x__7_c1x1-c__conv'], 'top': u'conv4_x__7_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'1024', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1024', 'begin': '0'}, 'top': 'conv4_x__7_c1x1-c-split1', 'name': 'conv4_x__7_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[348, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__7_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__7_sum"
@@ -2330,7 +2100,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[348, 0]], u'name': u'conv4_x__7_c1x1-c-split2', 'bottom': ['conv4_x__7_c1x1-c__conv'], 'top': u'conv4_x__7_c1x1-c-split2', u'param': {u'begin': u'1024', u'end': u'1048', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1048', 'begin': '1024'}, 'top': 'conv4_x__7_c1x1-c-split2', 'name': 'conv4_x__7_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[348, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__7_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__7_cat"
@@ -2353,11 +2123,6 @@ layer {
   top: "conv4_x__8_c1x1-a__bn__bn"
   name: "conv4_x__8_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__8_c1x1-a__bn__bn"
@@ -2394,11 +2159,6 @@ layer {
   top: "conv4_x__8_c3x3-b__bn__bn"
   name: "conv4_x__8_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__8_c3x3-b__bn__bn"
@@ -2435,11 +2195,6 @@ layer {
   top: "conv4_x__8_c1x1-c__bn__bn"
   name: "conv4_x__8_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__8_c1x1-c__bn__bn"
@@ -2472,7 +2227,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[371, 0]], u'name': u'conv4_x__8_c1x1-c-split1', 'bottom': ['conv4_x__8_c1x1-c__conv'], 'top': u'conv4_x__8_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'1024', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1024', 'begin': '0'}, 'top': 'conv4_x__8_c1x1-c-split1', 'name': 'conv4_x__8_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[371, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__8_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__8_sum"
@@ -2483,7 +2238,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[371, 0]], u'name': u'conv4_x__8_c1x1-c-split2', 'bottom': ['conv4_x__8_c1x1-c__conv'], 'top': u'conv4_x__8_c1x1-c-split2', u'param': {u'begin': u'1024', u'end': u'1048', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1048', 'begin': '1024'}, 'top': 'conv4_x__8_c1x1-c-split2', 'name': 'conv4_x__8_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[371, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__8_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__8_cat"
@@ -2506,11 +2261,6 @@ layer {
   top: "conv4_x__9_c1x1-a__bn__bn"
   name: "conv4_x__9_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__9_c1x1-a__bn__bn"
@@ -2547,11 +2297,6 @@ layer {
   top: "conv4_x__9_c3x3-b__bn__bn"
   name: "conv4_x__9_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__9_c3x3-b__bn__bn"
@@ -2588,11 +2333,6 @@ layer {
   top: "conv4_x__9_c1x1-c__bn__bn"
   name: "conv4_x__9_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__9_c1x1-c__bn__bn"
@@ -2625,7 +2365,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[394, 0]], u'name': u'conv4_x__9_c1x1-c-split1', 'bottom': ['conv4_x__9_c1x1-c__conv'], 'top': u'conv4_x__9_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'1024', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1024', 'begin': '0'}, 'top': 'conv4_x__9_c1x1-c-split1', 'name': 'conv4_x__9_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[394, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__9_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__9_sum"
@@ -2636,7 +2376,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[394, 0]], u'name': u'conv4_x__9_c1x1-c-split2', 'bottom': ['conv4_x__9_c1x1-c__conv'], 'top': u'conv4_x__9_c1x1-c-split2', u'param': {u'begin': u'1024', u'end': u'1048', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1048', 'begin': '1024'}, 'top': 'conv4_x__9_c1x1-c-split2', 'name': 'conv4_x__9_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[394, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__9_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__9_cat"
@@ -2659,11 +2399,6 @@ layer {
   top: "conv4_x__10_c1x1-a__bn__bn"
   name: "conv4_x__10_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__10_c1x1-a__bn__bn"
@@ -2700,11 +2435,6 @@ layer {
   top: "conv4_x__10_c3x3-b__bn__bn"
   name: "conv4_x__10_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__10_c3x3-b__bn__bn"
@@ -2741,11 +2471,6 @@ layer {
   top: "conv4_x__10_c1x1-c__bn__bn"
   name: "conv4_x__10_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__10_c1x1-c__bn__bn"
@@ -2778,7 +2503,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[417, 0]], u'name': u'conv4_x__10_c1x1-c-split1', 'bottom': ['conv4_x__10_c1x1-c__conv'], 'top': u'conv4_x__10_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'1024', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1024', 'begin': '0'}, 'top': 'conv4_x__10_c1x1-c-split1', 'name': 'conv4_x__10_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[417, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__10_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__10_sum"
@@ -2789,7 +2514,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[417, 0]], u'name': u'conv4_x__10_c1x1-c-split2', 'bottom': ['conv4_x__10_c1x1-c__conv'], 'top': u'conv4_x__10_c1x1-c-split2', u'param': {u'begin': u'1024', u'end': u'1048', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1048', 'begin': '1024'}, 'top': 'conv4_x__10_c1x1-c-split2', 'name': 'conv4_x__10_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[417, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__10_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__10_cat"
@@ -2812,11 +2537,6 @@ layer {
   top: "conv4_x__11_c1x1-a__bn__bn"
   name: "conv4_x__11_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__11_c1x1-a__bn__bn"
@@ -2853,11 +2573,6 @@ layer {
   top: "conv4_x__11_c3x3-b__bn__bn"
   name: "conv4_x__11_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__11_c3x3-b__bn__bn"
@@ -2894,11 +2609,6 @@ layer {
   top: "conv4_x__11_c1x1-c__bn__bn"
   name: "conv4_x__11_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__11_c1x1-c__bn__bn"
@@ -2931,7 +2641,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[440, 0]], u'name': u'conv4_x__11_c1x1-c-split1', 'bottom': ['conv4_x__11_c1x1-c__conv'], 'top': u'conv4_x__11_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'1024', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1024', 'begin': '0'}, 'top': 'conv4_x__11_c1x1-c-split1', 'name': 'conv4_x__11_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[440, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__11_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__11_sum"
@@ -2942,7 +2652,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[440, 0]], u'name': u'conv4_x__11_c1x1-c-split2', 'bottom': ['conv4_x__11_c1x1-c__conv'], 'top': u'conv4_x__11_c1x1-c-split2', u'param': {u'begin': u'1024', u'end': u'1048', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1048', 'begin': '1024'}, 'top': 'conv4_x__11_c1x1-c-split2', 'name': 'conv4_x__11_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[440, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__11_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__11_cat"
@@ -2965,11 +2675,6 @@ layer {
   top: "conv4_x__12_c1x1-a__bn__bn"
   name: "conv4_x__12_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__12_c1x1-a__bn__bn"
@@ -3006,11 +2711,6 @@ layer {
   top: "conv4_x__12_c3x3-b__bn__bn"
   name: "conv4_x__12_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__12_c3x3-b__bn__bn"
@@ -3047,11 +2747,6 @@ layer {
   top: "conv4_x__12_c1x1-c__bn__bn"
   name: "conv4_x__12_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__12_c1x1-c__bn__bn"
@@ -3084,7 +2779,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[463, 0]], u'name': u'conv4_x__12_c1x1-c-split1', 'bottom': ['conv4_x__12_c1x1-c__conv'], 'top': u'conv4_x__12_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'1024', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1024', 'begin': '0'}, 'top': 'conv4_x__12_c1x1-c-split1', 'name': 'conv4_x__12_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[463, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__12_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__12_sum"
@@ -3095,7 +2790,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[463, 0]], u'name': u'conv4_x__12_c1x1-c-split2', 'bottom': ['conv4_x__12_c1x1-c__conv'], 'top': u'conv4_x__12_c1x1-c-split2', u'param': {u'begin': u'1024', u'end': u'1048', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1048', 'begin': '1024'}, 'top': 'conv4_x__12_c1x1-c-split2', 'name': 'conv4_x__12_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[463, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__12_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__12_cat"
@@ -3118,11 +2813,6 @@ layer {
   top: "conv4_x__13_c1x1-a__bn__bn"
   name: "conv4_x__13_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__13_c1x1-a__bn__bn"
@@ -3159,11 +2849,6 @@ layer {
   top: "conv4_x__13_c3x3-b__bn__bn"
   name: "conv4_x__13_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__13_c3x3-b__bn__bn"
@@ -3200,11 +2885,6 @@ layer {
   top: "conv4_x__13_c1x1-c__bn__bn"
   name: "conv4_x__13_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__13_c1x1-c__bn__bn"
@@ -3237,7 +2917,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[486, 0]], u'name': u'conv4_x__13_c1x1-c-split1', 'bottom': ['conv4_x__13_c1x1-c__conv'], 'top': u'conv4_x__13_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'1024', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1024', 'begin': '0'}, 'top': 'conv4_x__13_c1x1-c-split1', 'name': 'conv4_x__13_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[486, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__13_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__13_sum"
@@ -3248,7 +2928,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[486, 0]], u'name': u'conv4_x__13_c1x1-c-split2', 'bottom': ['conv4_x__13_c1x1-c__conv'], 'top': u'conv4_x__13_c1x1-c-split2', u'param': {u'begin': u'1024', u'end': u'1048', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1048', 'begin': '1024'}, 'top': 'conv4_x__13_c1x1-c-split2', 'name': 'conv4_x__13_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[486, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__13_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__13_cat"
@@ -3271,11 +2951,6 @@ layer {
   top: "conv4_x__14_c1x1-a__bn__bn"
   name: "conv4_x__14_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__14_c1x1-a__bn__bn"
@@ -3312,11 +2987,6 @@ layer {
   top: "conv4_x__14_c3x3-b__bn__bn"
   name: "conv4_x__14_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__14_c3x3-b__bn__bn"
@@ -3353,11 +3023,6 @@ layer {
   top: "conv4_x__14_c1x1-c__bn__bn"
   name: "conv4_x__14_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__14_c1x1-c__bn__bn"
@@ -3390,7 +3055,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[509, 0]], u'name': u'conv4_x__14_c1x1-c-split1', 'bottom': ['conv4_x__14_c1x1-c__conv'], 'top': u'conv4_x__14_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'1024', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1024', 'begin': '0'}, 'top': 'conv4_x__14_c1x1-c-split1', 'name': 'conv4_x__14_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[509, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__14_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__14_sum"
@@ -3401,7 +3066,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[509, 0]], u'name': u'conv4_x__14_c1x1-c-split2', 'bottom': ['conv4_x__14_c1x1-c__conv'], 'top': u'conv4_x__14_c1x1-c-split2', u'param': {u'begin': u'1024', u'end': u'1048', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1048', 'begin': '1024'}, 'top': 'conv4_x__14_c1x1-c-split2', 'name': 'conv4_x__14_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[509, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__14_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__14_cat"
@@ -3424,11 +3089,6 @@ layer {
   top: "conv4_x__15_c1x1-a__bn__bn"
   name: "conv4_x__15_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__15_c1x1-a__bn__bn"
@@ -3465,11 +3125,6 @@ layer {
   top: "conv4_x__15_c3x3-b__bn__bn"
   name: "conv4_x__15_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__15_c3x3-b__bn__bn"
@@ -3506,11 +3161,6 @@ layer {
   top: "conv4_x__15_c1x1-c__bn__bn"
   name: "conv4_x__15_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__15_c1x1-c__bn__bn"
@@ -3543,7 +3193,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[532, 0]], u'name': u'conv4_x__15_c1x1-c-split1', 'bottom': ['conv4_x__15_c1x1-c__conv'], 'top': u'conv4_x__15_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'1024', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1024', 'begin': '0'}, 'top': 'conv4_x__15_c1x1-c-split1', 'name': 'conv4_x__15_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[532, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__15_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__15_sum"
@@ -3554,7 +3204,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[532, 0]], u'name': u'conv4_x__15_c1x1-c-split2', 'bottom': ['conv4_x__15_c1x1-c__conv'], 'top': u'conv4_x__15_c1x1-c-split2', u'param': {u'begin': u'1024', u'end': u'1048', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1048', 'begin': '1024'}, 'top': 'conv4_x__15_c1x1-c-split2', 'name': 'conv4_x__15_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[532, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__15_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__15_cat"
@@ -3577,11 +3227,6 @@ layer {
   top: "conv4_x__16_c1x1-a__bn__bn"
   name: "conv4_x__16_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__16_c1x1-a__bn__bn"
@@ -3618,11 +3263,6 @@ layer {
   top: "conv4_x__16_c3x3-b__bn__bn"
   name: "conv4_x__16_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__16_c3x3-b__bn__bn"
@@ -3659,11 +3299,6 @@ layer {
   top: "conv4_x__16_c1x1-c__bn__bn"
   name: "conv4_x__16_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__16_c1x1-c__bn__bn"
@@ -3696,7 +3331,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[555, 0]], u'name': u'conv4_x__16_c1x1-c-split1', 'bottom': ['conv4_x__16_c1x1-c__conv'], 'top': u'conv4_x__16_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'1024', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1024', 'begin': '0'}, 'top': 'conv4_x__16_c1x1-c-split1', 'name': 'conv4_x__16_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[555, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__16_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__16_sum"
@@ -3707,7 +3342,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[555, 0]], u'name': u'conv4_x__16_c1x1-c-split2', 'bottom': ['conv4_x__16_c1x1-c__conv'], 'top': u'conv4_x__16_c1x1-c-split2', u'param': {u'begin': u'1024', u'end': u'1048', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1048', 'begin': '1024'}, 'top': 'conv4_x__16_c1x1-c-split2', 'name': 'conv4_x__16_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[555, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__16_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__16_cat"
@@ -3730,11 +3365,6 @@ layer {
   top: "conv4_x__17_c1x1-a__bn__bn"
   name: "conv4_x__17_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__17_c1x1-a__bn__bn"
@@ -3771,11 +3401,6 @@ layer {
   top: "conv4_x__17_c3x3-b__bn__bn"
   name: "conv4_x__17_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__17_c3x3-b__bn__bn"
@@ -3812,11 +3437,6 @@ layer {
   top: "conv4_x__17_c1x1-c__bn__bn"
   name: "conv4_x__17_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__17_c1x1-c__bn__bn"
@@ -3849,7 +3469,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[578, 0]], u'name': u'conv4_x__17_c1x1-c-split1', 'bottom': ['conv4_x__17_c1x1-c__conv'], 'top': u'conv4_x__17_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'1024', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1024', 'begin': '0'}, 'top': 'conv4_x__17_c1x1-c-split1', 'name': 'conv4_x__17_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[578, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__17_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__17_sum"
@@ -3860,7 +3480,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[578, 0]], u'name': u'conv4_x__17_c1x1-c-split2', 'bottom': ['conv4_x__17_c1x1-c__conv'], 'top': u'conv4_x__17_c1x1-c-split2', u'param': {u'begin': u'1024', u'end': u'1048', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1048', 'begin': '1024'}, 'top': 'conv4_x__17_c1x1-c-split2', 'name': 'conv4_x__17_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[578, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__17_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__17_cat"
@@ -3883,11 +3503,6 @@ layer {
   top: "conv4_x__18_c1x1-a__bn__bn"
   name: "conv4_x__18_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__18_c1x1-a__bn__bn"
@@ -3924,11 +3539,6 @@ layer {
   top: "conv4_x__18_c3x3-b__bn__bn"
   name: "conv4_x__18_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__18_c3x3-b__bn__bn"
@@ -3965,11 +3575,6 @@ layer {
   top: "conv4_x__18_c1x1-c__bn__bn"
   name: "conv4_x__18_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__18_c1x1-c__bn__bn"
@@ -4002,7 +3607,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[601, 0]], u'name': u'conv4_x__18_c1x1-c-split1', 'bottom': ['conv4_x__18_c1x1-c__conv'], 'top': u'conv4_x__18_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'1024', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1024', 'begin': '0'}, 'top': 'conv4_x__18_c1x1-c-split1', 'name': 'conv4_x__18_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[601, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__18_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__18_sum"
@@ -4013,7 +3618,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[601, 0]], u'name': u'conv4_x__18_c1x1-c-split2', 'bottom': ['conv4_x__18_c1x1-c__conv'], 'top': u'conv4_x__18_c1x1-c-split2', u'param': {u'begin': u'1024', u'end': u'1048', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1048', 'begin': '1024'}, 'top': 'conv4_x__18_c1x1-c-split2', 'name': 'conv4_x__18_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[601, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__18_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__18_cat"
@@ -4036,11 +3641,6 @@ layer {
   top: "conv4_x__19_c1x1-a__bn__bn"
   name: "conv4_x__19_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__19_c1x1-a__bn__bn"
@@ -4077,11 +3677,6 @@ layer {
   top: "conv4_x__19_c3x3-b__bn__bn"
   name: "conv4_x__19_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__19_c3x3-b__bn__bn"
@@ -4118,11 +3713,6 @@ layer {
   top: "conv4_x__19_c1x1-c__bn__bn"
   name: "conv4_x__19_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__19_c1x1-c__bn__bn"
@@ -4155,7 +3745,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[624, 0]], u'name': u'conv4_x__19_c1x1-c-split1', 'bottom': ['conv4_x__19_c1x1-c__conv'], 'top': u'conv4_x__19_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'1024', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1024', 'begin': '0'}, 'top': 'conv4_x__19_c1x1-c-split1', 'name': 'conv4_x__19_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[624, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__19_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__19_sum"
@@ -4166,7 +3756,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[624, 0]], u'name': u'conv4_x__19_c1x1-c-split2', 'bottom': ['conv4_x__19_c1x1-c__conv'], 'top': u'conv4_x__19_c1x1-c-split2', u'param': {u'begin': u'1024', u'end': u'1048', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1048', 'begin': '1024'}, 'top': 'conv4_x__19_c1x1-c-split2', 'name': 'conv4_x__19_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[624, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__19_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__19_cat"
@@ -4189,11 +3779,6 @@ layer {
   top: "conv4_x__20_c1x1-a__bn__bn"
   name: "conv4_x__20_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__20_c1x1-a__bn__bn"
@@ -4230,11 +3815,6 @@ layer {
   top: "conv4_x__20_c3x3-b__bn__bn"
   name: "conv4_x__20_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__20_c3x3-b__bn__bn"
@@ -4271,11 +3851,6 @@ layer {
   top: "conv4_x__20_c1x1-c__bn__bn"
   name: "conv4_x__20_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv4_x__20_c1x1-c__bn__bn"
@@ -4308,7 +3883,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[647, 0]], u'name': u'conv4_x__20_c1x1-c-split1', 'bottom': ['conv4_x__20_c1x1-c__conv'], 'top': u'conv4_x__20_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'1024', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1024', 'begin': '0'}, 'top': 'conv4_x__20_c1x1-c-split1', 'name': 'conv4_x__20_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[647, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__20_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__20_sum"
@@ -4319,7 +3894,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[647, 0]], u'name': u'conv4_x__20_c1x1-c-split2', 'bottom': ['conv4_x__20_c1x1-c__conv'], 'top': u'conv4_x__20_c1x1-c-split2', u'param': {u'begin': u'1024', u'end': u'1048', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '1048', 'begin': '1024'}, 'top': 'conv4_x__20_c1x1-c-split2', 'name': 'conv4_x__20_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[647, 0]], 'backward_source_id': -1, 'bottom': ['conv4_x__20_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv4_x__20_cat"
@@ -4342,11 +3917,6 @@ layer {
   top: "conv5_x__1_c1x1-w(s/2)__bn__bn"
   name: "conv5_x__1_c1x1-w(s/2)__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv5_x__1_c1x1-w(s/2)__bn__bn"
@@ -4379,18 +3949,13 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[658, 0]], u'name': u'conv5_x__1_c1x1-w(s/2)-split1', 'bottom': ['conv5_x__1_c1x1-w(s/2)__conv'], 'top': u'conv5_x__1_c1x1-w(s/2)-split1', u'param': {u'begin': u'0', u'end': u'2048', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '2048', 'begin': '0'}, 'top': 'conv5_x__1_c1x1-w(s/2)-split1', 'name': 'conv5_x__1_c1x1-w(s/2)-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[658, 0]], 'backward_source_id': -1, 'bottom': ['conv5_x__1_c1x1-w(s/2)__conv']}
 </slice_json>
 layer {
   bottom: "conv5_x__1_cat-input"
   top: "conv5_x__1_c1x1-a__bn__bn"
   name: "conv5_x__1_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv5_x__1_c1x1-a__bn__bn"
@@ -4427,11 +3992,6 @@ layer {
   top: "conv5_x__1_c3x3-b__bn__bn"
   name: "conv5_x__1_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv5_x__1_c3x3-b__bn__bn"
@@ -4468,11 +4028,6 @@ layer {
   top: "conv5_x__1_c1x1-c__bn__bn"
   name: "conv5_x__1_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv5_x__1_c1x1-c__bn__bn"
@@ -4505,7 +4060,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[677, 0]], u'name': u'conv5_x__1_c1x1-c-split1', 'bottom': ['conv5_x__1_c1x1-c__conv'], 'top': u'conv5_x__1_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'2048', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '2048', 'begin': '0'}, 'top': 'conv5_x__1_c1x1-c-split1', 'name': 'conv5_x__1_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[677, 0]], 'backward_source_id': -1, 'bottom': ['conv5_x__1_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv5_x__1_sum"
@@ -4516,10 +4071,10 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[658, 0]], u'name': u'conv5_x__1_c1x1-w(s/2)-split2', 'bottom': ['conv5_x__1_c1x1-w(s/2)__conv'], 'top': u'conv5_x__1_c1x1-w(s/2)-split2', u'param': {u'begin': u'2048', u'end': u'2304', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '2304', 'begin': '2048'}, 'top': 'conv5_x__1_c1x1-w(s/2)-split2', 'name': 'conv5_x__1_c1x1-w(s/2)-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[658, 0]], 'backward_source_id': -1, 'bottom': ['conv5_x__1_c1x1-w(s/2)__conv']}
 </slice_json>
 <slice_json>
-{u'inputs': [[677, 0]], u'name': u'conv5_x__1_c1x1-c-split2', 'bottom': ['conv5_x__1_c1x1-c__conv'], 'top': u'conv5_x__1_c1x1-c-split2', u'param': {u'begin': u'2048', u'end': u'2176', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '2176', 'begin': '2048'}, 'top': 'conv5_x__1_c1x1-c-split2', 'name': 'conv5_x__1_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[677, 0]], 'backward_source_id': -1, 'bottom': ['conv5_x__1_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv5_x__1_cat"
@@ -4542,11 +4097,6 @@ layer {
   top: "conv5_x__2_c1x1-a__bn__bn"
   name: "conv5_x__2_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv5_x__2_c1x1-a__bn__bn"
@@ -4583,11 +4133,6 @@ layer {
   top: "conv5_x__2_c3x3-b__bn__bn"
   name: "conv5_x__2_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv5_x__2_c3x3-b__bn__bn"
@@ -4624,11 +4169,6 @@ layer {
   top: "conv5_x__2_c1x1-c__bn__bn"
   name: "conv5_x__2_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv5_x__2_c1x1-c__bn__bn"
@@ -4661,7 +4201,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[701, 0]], u'name': u'conv5_x__2_c1x1-c-split1', 'bottom': ['conv5_x__2_c1x1-c__conv'], 'top': u'conv5_x__2_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'2048', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '2048', 'begin': '0'}, 'top': 'conv5_x__2_c1x1-c-split1', 'name': 'conv5_x__2_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[701, 0]], 'backward_source_id': -1, 'bottom': ['conv5_x__2_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv5_x__2_sum"
@@ -4672,7 +4212,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[701, 0]], u'name': u'conv5_x__2_c1x1-c-split2', 'bottom': ['conv5_x__2_c1x1-c__conv'], 'top': u'conv5_x__2_c1x1-c-split2', u'param': {u'begin': u'2048', u'end': u'2176', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '2176', 'begin': '2048'}, 'top': 'conv5_x__2_c1x1-c-split2', 'name': 'conv5_x__2_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[701, 0]], 'backward_source_id': -1, 'bottom': ['conv5_x__2_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv5_x__2_cat"
@@ -4695,11 +4235,6 @@ layer {
   top: "conv5_x__3_c1x1-a__bn__bn"
   name: "conv5_x__3_c1x1-a__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv5_x__3_c1x1-a__bn__bn"
@@ -4736,11 +4271,6 @@ layer {
   top: "conv5_x__3_c3x3-b__bn__bn"
   name: "conv5_x__3_c3x3-b__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv5_x__3_c3x3-b__bn__bn"
@@ -4777,11 +4307,6 @@ layer {
   top: "conv5_x__3_c1x1-c__bn__bn"
   name: "conv5_x__3_c1x1-c__bn__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv5_x__3_c1x1-c__bn__bn"
@@ -4814,7 +4339,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[724, 0]], u'name': u'conv5_x__3_c1x1-c-split1', 'bottom': ['conv5_x__3_c1x1-c__conv'], 'top': u'conv5_x__3_c1x1-c-split1', u'param': {u'begin': u'0', u'end': u'2048', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '2048', 'begin': '0'}, 'top': 'conv5_x__3_c1x1-c-split1', 'name': 'conv5_x__3_c1x1-c-split1', 'params': [], 'op': 'slice_axis', 'inputs': [[724, 0]], 'backward_source_id': -1, 'bottom': ['conv5_x__3_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv5_x__3_sum"
@@ -4825,7 +4350,7 @@ layer {
 }
 
 <slice_json>
-{u'inputs': [[724, 0]], u'name': u'conv5_x__3_c1x1-c-split2', 'bottom': ['conv5_x__3_c1x1-c__conv'], 'top': u'conv5_x__3_c1x1-c-split2', u'param': {u'begin': u'2048', u'end': u'2176', u'axis': u'1'}, 'params': [], u'backward_source_id': -1, u'op': u'slice_axis'}
+{'param': {'axis': '1', 'end': '2176', 'begin': '2048'}, 'top': 'conv5_x__3_c1x1-c-split2', 'name': 'conv5_x__3_c1x1-c-split2', 'params': [], 'op': 'slice_axis', 'inputs': [[724, 0]], 'backward_source_id': -1, 'bottom': ['conv5_x__3_c1x1-c__conv']}
 </slice_json>
 layer {
   name: "conv5_x__3_cat"
@@ -4848,11 +4373,6 @@ layer {
   top: "conv5_x_x__relu-sp__bn"
   name: "conv5_x_x__relu-sp__bn"
   type: "BatchNorm"
-  batch_norm_param {
-    use_global_stats: true
-    moving_average_fraction: 0.9
-    eps: 0.001
-  }
 }
 layer {
   bottom: "conv5_x_x__relu-sp__bn"
